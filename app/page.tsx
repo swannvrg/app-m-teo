@@ -14,7 +14,8 @@ const Home = () => {
   const fetchWeatherData = async () => {
     try {
       const response = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&units=metric&lang=fr`
+        ``https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&units=metric&lang=fr`
+`
       );
       setWeatherData(response.data);
     } catch (error) {

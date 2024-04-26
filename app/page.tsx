@@ -13,10 +13,9 @@ const Home = () => {
 
   const fetchWeatherData = async () => {
     try {
-       const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&units=metric&lang=fr`
-        );
-
+      const response = await axios.get(
+        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&units=metric&lang=fr`
+      );
       setWeatherData(response.data);
     } catch (error) {
       console.error('Error fetching weather data:', error);
@@ -27,7 +26,7 @@ const Home = () => {
 
 
   return (
-    <div className="background-image ">
+    <div className="background-image " >
       
     
       <title>Meteo App</title>
@@ -39,19 +38,24 @@ const Home = () => {
 
       </nav>
       <div className="container">
-      <div className=" mt-5 text-center row">
-        <div className="col-3"></div>
-        <div className="  col-6 row">
-      <input
-      className="rounded form-group col-7 offset-1  me-2 "
+      <div className=" mt-5 text-center d-flex justify-content-center row ">
+       
+        <div className="  col-12 col-lg-6 ">
+          <div className="row d-flex justify-content-center">
+
+            <input
+      className="rounded form-group col-10 col-md-7   me-2 "
         type="text"
         placeholder="Entrez une ville"
         value={city}
         onChange={(e) => setCity(e.target.value)}
       />
       <button onClick={fetchWeatherData}
-      className="btn btn-dark  col-3">Afficher</button>
+      className="btn btn-dark col-md-3  col-5 ">Afficher</button>
       {weatherData && <Weather weatherData={weatherData} />}
+          
+          </div>
+      
       </div>
       </div>
     </div>

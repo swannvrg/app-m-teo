@@ -14,14 +14,15 @@ const Weather = ({ weatherData }) => {
 };
   return (
     <>
-    <div className='bg-secondary-subtle border rounded mt-4'>
-      <div className='pt-3 pb-2'>
+    <div className='container'>
+    <div className='bg-secondary-subtle border rounded mt-4  '>
+      <div className='pt-3 pb-2 row'>
       <h2>
     {weatherData.name} ({weatherData.sys.country}) - {getLocalTime(new Date(), weatherData.timezone)}
 </h2>
-
-        <div className='d-flex align-items-center justify-content-between p-3'>
-          <div className='ms-5'>
+        <div className='col-1'></div>
+        <div className='d-flex justify-content-center p-3  col-10'>
+          <div className=' col'>
 
             <Image
               src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
@@ -33,28 +34,28 @@ const Weather = ({ weatherData }) => {
 
             <p className='fs-5'>{weatherData.weather[0].description}</p>
           </div>
-          <div className='text-center fs-1 me-5'>
-            <p className='me-5 fw-bold'>{Math.floor(weatherData.main.temp)}°C</p>
-
+          <div className='d-flex justify-content-center align-items-center fs-1 col'>
+            <p className='fw-bold'>{Math.floor(weatherData.main.temp)}°C</p>
           </div>
         </div>
       </div>
       
     </div>
-    <div className='bg-dark p-3 mt-3 rounded bg-opacity-50 text-light text-center'>
+    <div className='bg-dark p-3 mt-3 rounded bg-opacity-50 text-light text-center d-flex justify-content-center mb-'>
       <div className='row'>
-          <div className="col-4  p-3 ">
+          <div className="col  p-3 ">
             <p className='fs-5'>Humidité  <br></br><span className='fs-2 fw-bold'>{weatherData.main.humidity}%</span></p>
           </div>
-          <div className="col-4 p-3 ">
-            <p className='fs-5'>Vent <br></br><span className='fs-2 fw-bold'>{Math.floor(weatherData.wind.speed * 3.6)} km/h</span></p>
+          <div className="col p-3 ">
+            <p className='fs-5'>Vent <br></br><span className='fs-2 fw-bold'>{Math.floor(weatherData.wind.speed * 3.6)}km/h</span></p>
           </div>
-          <div className="col-4 p-3 ">
+          <div className="col p-3 ">
             <p className='fs-5'>Ressenti <br></br><span className='fs-2 fw-bold'>{Math.floor(weatherData.main.feels_like)}°C</span> </p>
             
           </div>
       </div>
 
+    </div>
     </div>
     </>
   );
